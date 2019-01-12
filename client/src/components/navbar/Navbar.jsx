@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 import styles from './navbar.module.scss';
 
-import cartIcon from '../../images/shopping-cart.svg';
+import cartIcon from '../../images/shopping-cart.png';
 
 class Navbar extends Component {
   render() {
     return (
       <div className={styles.navbar}>
-        <ul className={styles.navbar__menu}>
-          <li className={styles.navbar__menuItem}>
+        <ul className={styles.menu}>
+          <li className={styles.menuItem}>
             <a href="">Sign in!</a>
           </li>
-          <li className={styles.navbar__menuItem}>
-            <a href=""><cartIcon/></a>
+          <li className={styles.menuItem}>
+            <a href=""><img src={cartIcon} alt=""/></a>
           </li>
         </ul>
       </div>

@@ -5,3 +5,12 @@ body {
   background-color: #eee;
   font-family: $regular;
 }
+
+a {
+  text-decoration: none;
+}
+
+.center-wrapper {
+  max-width: 1248px;
+  padding: 0 15px;
+}
