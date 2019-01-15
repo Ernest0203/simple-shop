@@ -1,0 +1,20 @@
+.container {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 24px 0;
+}
+
+.list {
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+  padding: 0 24px;
+  margin: 0;
+  li {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    &:first-child {
+      border-top: none;
+    }
+  }
+}

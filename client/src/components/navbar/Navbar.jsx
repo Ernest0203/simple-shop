@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import styles from './navbar.module.scss';
+import styles from './styles.module.scss';
 
-import cartIcon from '../../images/shopping-cart.png';
+import cartIcon from '../../app/images/shopping-cart.png';
 
 class Navbar extends Component {
   render() {

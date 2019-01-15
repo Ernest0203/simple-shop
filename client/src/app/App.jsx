@@ -6,9 +6,11 @@ import store from '../store';
 import Navbar from '../components/navbar/Navbar.jsx';
 import Header from '../components/header/Header.jsx';
 
+import MainPage from '../pages/main/mainPage.jsx'
+
 import 'normalize.css';
-import '../fonts/fonts.scss';
-import styles from './main.module.scss';
+import './fonts/fonts.scss';
+import styles from './styles.module.scss';
 
 class App extends Component {
   render() {
@@ -17,6 +19,10 @@ class App extends Component {
         <div className={styles.container}>
           <Navbar />
           <Header />
+          <div className={styles.main}>
+            <h1 className={styles.categoryName}>Category Name</h1>
+            <MainPage />
+          </div>
         </div>
       </Provider>
     );

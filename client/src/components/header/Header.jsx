@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Search from '../search/Search.jsx';
 
-import styles from './header.module.scss';
+import styles from './styles.module.scss';
 
 class Header extends Component {
   render() {

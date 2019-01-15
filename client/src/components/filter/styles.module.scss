@@ -1,0 +1,16 @@
+.filter {
+  .filterTitle {
+    font-size: 0.875rem;
+    margin-top: 0;
+  }
+  .filterList {
+    list-style: none;
+    padding: 0;
+  }
+  .filterItem {
+    padding: 2px 0;
+    a {
+      color: #333;
+    }
+  }
+}
