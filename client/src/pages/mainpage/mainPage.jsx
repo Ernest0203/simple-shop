@@ -9,11 +9,14 @@ class Main extends Component {
   render() {
     return (
       <div className={styles.main}>
-        <div className={styles.leftColumn}>
-          <Filter />
-        </div>
-        <div className={styles.rightColumn}>
-          <ProductList />
+        <h1 className={styles.categoryName}>All categories</h1>
+        <div className={styles.mainContent}>
+          <div className={styles.leftColumn}>
+            <Filter />
+          </div>
+          <div className={styles.rightColumn}>
+            <ProductList />
+          </div>
         </div>
       </div>
     );

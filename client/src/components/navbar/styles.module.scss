@@ -14,7 +14,9 @@
   .menuItem {
     height: 30px;
     line-height: 30px;
-    a {
+    &_signin {
+      height: 30px;
+      line-height: 30px;
       color: #0654ba;
       &:hover {
         text-decoration: underline;

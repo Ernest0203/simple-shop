@@ -19,7 +19,6 @@ class App extends Component {
       <div className={styles.container}>
         <Header />
         <div className={styles.main}>
-          <h1 className={styles.categoryName}>Category Name</h1>
           <Main />
         </div>
       </div>
