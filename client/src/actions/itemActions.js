@@ -4,7 +4,7 @@ import { FETCHING_DATA, FETCH_DATA_SUCCESS, ADD_ITEM, DELETE_ITEM } from './acti
 
 export function fetchData(args = {}) {
   dispatch(fetchingData());
-  axios.get('/api/items')
+  axios.get('user/items')
     .then((res) => {
       dispatch(fetchingDataSucces())
     })
