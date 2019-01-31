@@ -21,9 +21,8 @@ mongoose.connect(db)
 
 app.use('/api/items', items);
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+const port = process.env.PORT || 2000;
+app.listen(port, () => console.log(`Server started on port ${port}...`));
 
 // app.get('/courses', (req, res) => {
 //   res.send(courses);
@@ -74,6 +73,3 @@ app.get('/', (req, res) => {
 //   course.name = req.body.name;
 //   res.send(course);
 // });
-
-const port = process.env.PORT || 2000;
-app.listen(port, () => console.log(`Server started on port ${port}...`));

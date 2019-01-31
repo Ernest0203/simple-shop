@@ -9,21 +9,41 @@ class AddProduct extends Component {
     super(props);
 
     this.state = {
-      title: '',
-      desc: '',
+      name: '',
+      description: '',
+      image: {},
       price: 0,
     }
   }
 
+  uploadImage = (prop) => {
+    const reader = new FileReader();
+    const file = prop.target.files[0];
+    reader.onload = () => {
+      const image = {};
+      image.name = file.name;
+      image.size = file.size;
+      image.type = file.type;
+      image.data = reader.result;
+      this.setState({
+        image: image
+      })
+    };
+    reader.readAsBinaryString(file);
+  }
+
   changeItemInfo = (prop) => {
-    this.setState({ 
-      [prop.target.name]: prop.target.value
-    })
+    if (prop.target.type === 'number') {
+      this.setState({ [prop.target.name]: +prop.target.value })
+    } 
+    if (prop.target.name === 'image') {
+      this.uploadImage(prop);
+    } else this.setState({ [prop.target.name]: prop.target.value })
   }
 
   fieldValidation = () => {
     return Object.values(this.state).every((key) => {
-      if (key !== '' && key !== 0 && Number(key) !== 0) {
+      if (key !== '' && key !== 0) {
         return true;
       } else return false;
     })
@@ -31,9 +51,12 @@ class AddProduct extends Component {
 
   addItem = (e) => {
     e.preventDefault();
-    if (!this.fieldValidation()) {
+    if (this.fieldValidation()) {
+      addItem(this.state);
+    } else {
+      console.log('Validation error');
       return
-    } else addItem(this.state);
+    }
   } 
 
   render() {
@@ -41,9 +64,10 @@ class AddProduct extends Component {
       <div className={styles.container}>
         <h3 className={styles.title}>Add new product</h3>
         <form className={styles.form}>
-          <input type="text" className={styles.productTitle} name="title" placeholder="Title" onChange={(e) => this.changeItemInfo(e)} />
-          <textarea type="text" className={styles.productDesc} name="desc" placeholder="Description" onChange={(e) => this.changeItemInfo(e)} />
+          <input type="text" className={styles.productTitle} name="name" placeholder="Title" onChange={(e) => this.changeItemInfo(e)} />
+          <textarea type="text" className={styles.productDesc} name="description" placeholder="Description" onChange={(e) => this.changeItemInfo(e)} />
           <input type="number" className={styles.productPrice} name="price" min="0" placeholder="Price" onChange={(e) => this.changeItemInfo(e)} />
+          <input type="file" name='image' onChange={(e) => this.changeItemInfo(e)} />
           <button onClick={(e) => this.addItem(e)}>Add product</button>
         </form>
       </div>
