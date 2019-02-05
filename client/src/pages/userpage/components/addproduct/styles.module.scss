@@ -30,7 +30,7 @@ input[type=text], input[type=number], textarea {
 }
 
 input[type=number] {
-  margin: 0 15px 0 0;
+  margin: 0 15px 15px 0;
   width: auto;
 }
 
@@ -41,7 +41,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=file] {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 button {

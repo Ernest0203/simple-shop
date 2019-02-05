@@ -1,1 +1,3 @@
+export const FETCHING_DATA = 'FETCHING_USER_DATA';
+export const FETCH_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
 export const ADD_ITEM = 'ADD_ITEM';

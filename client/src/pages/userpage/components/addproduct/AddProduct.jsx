@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import styles from './styles.module.scss';
 
-import { addItem } from '../../actions/actions.js';
-
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +9,11 @@ class AddProduct extends Component {
     this.state = {
       name: '',
       description: '',
-      image: {},
       price: 0,
-    }
+      category: '',
+      image: {},
+    };
+    this.initialState = { ...this.state };
   }
 
   uploadImage = (prop) => {
@@ -49,10 +49,19 @@ class AddProduct extends Component {
     })
   }
 
+  clearForm = (e) => {
+    Object.keys(e.target.parentNode.elements).forEach((key) => {
+      e.target.parentNode.elements[key].value = '';
+    })
+  }
+
   addItem = (e) => {
     e.preventDefault();
+    this.clearForm(e);
     if (this.fieldValidation()) {
-      addItem(this.state);
+      this.props.addItem(this.state);
+      this.clearForm(e);
+      this.setState(this.initialState);
     } else {
       console.log('Validation error');
       return
@@ -67,7 +76,13 @@ class AddProduct extends Component {
           <input type="text" className={styles.productTitle} name="name" placeholder="Title" onChange={(e) => this.changeItemInfo(e)} />
           <textarea type="text" className={styles.productDesc} name="description" placeholder="Description" onChange={(e) => this.changeItemInfo(e)} />
           <input type="number" className={styles.productPrice} name="price" min="0" placeholder="Price" onChange={(e) => this.changeItemInfo(e)} />
+          <select name="category" onChange={(e) => this.changeItemInfo(e)}>
+            <option value="" disabled selected hidden>Category</option>
+            <option value="electronics">Electronics</option>
+          </select>
+          <br />
           <input type="file" name='image' onChange={(e) => this.changeItemInfo(e)} />
+          <br />
           <button onClick={(e) => this.addItem(e)}>Add product</button>
         </form>
       </div>

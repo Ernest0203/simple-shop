@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import AddProduct from '../components/addproduct/AddProduct.jsx';
+import ListingComponent from '../components/listingComponent.jsx';
 
 import {
-  addItem
+  fetchData
 } from '../actions/listingActions.js';
 
 
@@ -13,17 +13,18 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: (args) => {
-    addItem(args);
+  fetchData: (args) => {
+    fetchData(args);
   }
 });
 
 const mergeProps = (stateProps, dispatchProps) => {};
 
-const AddProductContainer = connect(
+const Listing = connect(
   mapStateToProps,
   mapDispatchToProps,
   //mergeProps,
-)(AddProduct);
+)(ListingComponent);
 
-export default AddProductContainer;
+export default Listing;
+
