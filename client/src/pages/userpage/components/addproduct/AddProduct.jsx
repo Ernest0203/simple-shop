@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Button from '../../../../components/button/Button.jsx';
+
 import styles from './styles.module.scss';
 
 class AddProduct extends Component {
@@ -83,7 +85,7 @@ class AddProduct extends Component {
           <br />
           <input type="file" name='image' onChange={(e) => this.changeItemInfo(e)} />
           <br />
-          <button onClick={(e) => this.addItem(e)}>Add product</button>
+          <button className={styles.button} onClick={(e) => this.addItem(e)}><Button text='Add Product' /></button>
         </form>
       </div>
     );

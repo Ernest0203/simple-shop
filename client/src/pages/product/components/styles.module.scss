@@ -1,0 +1,34 @@
+.product {
+  display: flex;
+}
+
+.productImage {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+
+.productDescription {
+  .title {
+    margin-top: 0;
+  }
+  .description {
+    margin-bottom: 20px;
+  }
+  .price {
+    span {
+      font-weight: 500;
+      font-family: 'OpenSans-Bold';
+    }
+  }
+
+  .buttons {
+    margin-top: 30px;
+    .addToCartBtn {
+      margin-right: 20px;
+    }
+    .removeBtn {
+
+    }
+  }
+}
