@@ -11,4 +11,4 @@ const ItemSchema = new Schema({
   date: { type: Date, default: Date.now },
 })
 
-module.exports = Items = mongoose.model('item', ItemSchema);
+module.exports = Items = mongoose.model('items', ItemSchema);

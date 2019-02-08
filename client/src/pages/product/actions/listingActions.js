@@ -6,7 +6,7 @@ const dispatch = window.dispatch;
 
 export const fetchData = (args = {}) => {
   dispatch(fetchingData());
-  axios.get('/api/items', args)
+  axios.get('/items', args)
     .then((res) => {
       dispatch(fetchDataSuccess(res.data))
   }).catch(err => console.log(err));
@@ -24,7 +24,7 @@ function fetchDataSuccess(data) {
 };
 
 export function addItem(args = {}) {
-  axios.post('/api/items', args)
+  axios.post('/items', args)
     .then((res) => {
       console.log(res)
       //dispatch(addItemSuccess(res));

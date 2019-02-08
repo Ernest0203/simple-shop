@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+
+import { popupToggle } from '../../app/actions/actions.js'
 
 import styles from './styles.module.scss';
 
 import cartIcon from '../../app/images/shopping-cart.png';
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  popupToggle = (e) => {
+    e.preventDefault();
+    window.document.body.style.overflow = 'hidden';
+    popupToggle();
+  } 
+
   render() {
     return (
       <div className={styles.navbar}>
         <ul className={styles.menu}>
           <li className={styles.menuItem_signin}>
-            <Link to="/user">Sign in!</Link>
+            {/* <Link to="/user">Sign in!</Link> */}
+            <a href="" onClick={(e) => this.popupToggle(e)}>Login</a> or <a href="">Register</a>
           </li>
           <li className={styles.menuItem}>
             <a href=""><img src={cartIcon} alt=""/></a>

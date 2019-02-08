@@ -6,9 +6,8 @@ const dispatch = window.dispatch;
 
 export const fetchData = (args = {}) => {
   dispatch(fetchingData());
-  axios.get('/api/items', args)
+  axios.get('/items', args)
     .then((res) => {
-      console.log(res)
       dispatch(fetchDataSuccess(res.data))
   }).catch(err => console.log(err));
 };

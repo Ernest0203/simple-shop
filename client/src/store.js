@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import { listing as mainListing } from './pages/mainpage/reducers/listingReducer.js';
 import { listing as userListing } from './pages/userpage/reducers/listingReducer.js';
+import general from './app/reducers/index.js';
 
 const combinedReducers = combineReducers({
   main: mainListing,
   user: userListing,
+  general: general,
 })
 
 const middleware = [thunk];

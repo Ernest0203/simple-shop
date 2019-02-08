@@ -52,8 +52,8 @@ class AddProduct extends Component {
   }
 
   clearForm = (e) => {
-    Object.keys(e.target.parentNode.elements).forEach((key) => {
-      e.target.parentNode.elements[key].value = '';
+    Object.keys(e.target.parentNode.parentNode.elements).forEach((key) => {
+      e.target.parentNode.parentNode.elements[key].value = '';
     })
   }
 
@@ -85,7 +85,7 @@ class AddProduct extends Component {
           <br />
           <input type="file" name='image' onChange={(e) => this.changeItemInfo(e)} />
           <br />
-          <button className={styles.button} onClick={(e) => this.addItem(e)}><Button text='Add Product' /></button>
+          <a className={styles.button} onClick={(e) => this.addItem(e)}><Button text='Add Product' /></a>
         </form>
       </div>
     );

@@ -26,8 +26,7 @@ function fetchDataSuccess(data) {
 export function addItem(args = {}) {
   axios.post('/api/items', args)
     .then((res) => {
-      console.log(res)
-      //dispatch(addItemSuccess(res));
+      dispatch(addItemSuccess(res));
   }).catch(err => console.log(err));
 }
 

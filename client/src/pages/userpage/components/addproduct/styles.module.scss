@@ -14,7 +14,7 @@
   padding-bottom: 10px;
 }
 
-input[type=text], input[type=number], textarea, select {
+.productTitle, .productDesc, textarea, select {
   border-radius: 5px;
   border: 1px solid #ddd;
   margin-bottom: 20px;
@@ -33,7 +33,7 @@ input[type=text], input[type=number], textarea, select {
   height: 100px;
 }
 
-input[type=number] {
+.productPrice {
   margin: 0 15px 15px 0;
   width: auto;
 }
@@ -42,8 +42,8 @@ select {
   width: auto;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+.productPrice::-webkit-inner-spin-button, 
+.productPrice::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
@@ -55,5 +55,4 @@ input[type=file] {
 .button {
   border: none;
   background: none;
-  margin-left: -5px;
 }

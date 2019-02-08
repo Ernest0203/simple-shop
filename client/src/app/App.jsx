@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -13,10 +14,15 @@ import 'normalize.css';
 import './fonts/fonts.scss';
 import styles from './styles.module.scss';
 
-class App extends Component {
+import Login from '../components/login/Login.jsx';
+
+class AppComponent extends Component {
   render() {
+    const { popupIsOpen } = this.props;
+
     return (
       <div className={styles.container}>
+        <Login popupIsOpen={popupIsOpen}/>
         <Header />
         <div className={styles.main}>
           <Main />
@@ -25,5 +31,19 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  const { popupIsOpen } = state.general;
+  return { popupIsOpen };
+}
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AppComponent);
 
 export default App;

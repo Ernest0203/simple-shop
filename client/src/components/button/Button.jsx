@@ -8,10 +8,15 @@ class Button extends Component {
   }
 
   render() {
-    const { text } = this.props;
+    const { text, width, display } = this.props;
+
+    const style = {
+      width: `${width}` ,
+      display: display
+    }
 
     return (
-      <div className={styles.button}>
+      <div className={styles.button} style={style}>
         {text}
       </div>
     );

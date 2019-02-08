@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
-const upload = require('../../lib/fileUpload');
+const upload = require('../lib/fileUpload');
 
-// Item model
-const Items = require('../../models/Item');
+const Items = require('../models/items.js');
 
 router.get('/', (req, res) => {
   Items.find()
     .sort({ date: -1 })
-    .then(items => res.json(items));
+    .then(items => res.json(items))
+    .catch(err => res.send('error: ' + err))
 })
 
 router.post('/', (req, res) => {
   return upload(req.body.image.data).then((imageUrl) => {
     const data = { ...req.body };
     data.imageUrl = imageUrl;
-    const newItem = new Items(data);
-    newItem.save().then(item => res.json(item));
+    Items.create(data).then(item => res.json(item));
   })
+  .catch(err => res.send('error: ' + err))
 })
 
 router.delete('/:id', (req,res) => {
