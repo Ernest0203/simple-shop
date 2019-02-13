@@ -11,8 +11,8 @@ class Button extends Component {
     const { text, width, display } = this.props;
 
     const style = {
-      width: `${width}` ,
-      display: display
+      width: width ? `${width}` : 'auto',
+      display: display ? display : 'inline',
     }
 
     return (

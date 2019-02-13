@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { popupToggle } from '../../app/actions/actions.js'
 
@@ -12,10 +12,10 @@ class Navbar extends Component {
     super(props)
   }
 
-  popupToggle = (e) => {
+  popupOpen = (e, type) => {
     e.preventDefault();
     window.document.body.style.overflow = 'hidden';
-    popupToggle();
+    popupToggle(type);
   } 
 
   render() {
@@ -23,8 +23,8 @@ class Navbar extends Component {
       <div className={styles.navbar}>
         <ul className={styles.menu}>
           <li className={styles.menuItem_signin}>
-            {/* <Link to="/user">Sign in!</Link> */}
-            <a href="" onClick={(e) => this.popupToggle(e)}>Login</a> or <a href="">Register</a>
+            <Link to="/user">Sign in!</Link>
+            <a href="" onClick={(e) => this.popupOpen(e, 'login')}>Login</a> or <a href="" onClick={(e) => this.popupOpen(e, 'register')}>Register</a>
           </li>
           <li className={styles.menuItem}>
             <a href=""><img src={cartIcon} alt=""/></a>

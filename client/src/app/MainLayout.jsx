@@ -5,7 +5,7 @@ import MainPage from '../pages/mainpage/mainPage.jsx';
 import UserPage from '../pages/userpage/userPage.jsx';
 import ProductPage from '../pages/product/product.jsx';
 
-class Main extends Component {
+class MainLayout extends Component {
   render () {
     return (
       <main>
@@ -19,4 +19,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainLayout;
