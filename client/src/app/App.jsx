@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Navbar from '../components/navbar/Navbar.jsx';
+import Login from './containers/loginContainer.js';
 import Header from '../components/header/Header.jsx';
+import Notification from './containers/notification.js';
 
 import MainPage from '../pages/mainpage/mainPage.jsx';
 import MainLayout from './MainLayout.jsx';
@@ -11,12 +12,11 @@ import 'normalize.css';
 import './fonts/fonts.scss';
 import styles from './styles.module.scss';
 
-import Login from './containers/loginContainer.js';
-
 class App extends Component {
   render() {
     return (
       <div className={styles.container}>
+        <Notification />
         <Login />
         <Header />
         <div className={styles.main}>

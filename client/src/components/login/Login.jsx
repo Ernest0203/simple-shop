@@ -9,32 +9,45 @@ import styles from './styles.module.scss';
 class Login extends Component {
   constructor(props) {
     super(props)
+    this.state = {};
   }
 
   render() {
-    const { popupIsOpen, popupType, popupToggle } = this.props.data;
+    const { popupToggle, registerUser } = this.props;
+    const { popupIsOpen, popupType } = this.props.data;
+
+    const saveFieldData = (e) => {
+      this.setState({ [e.target.name]: e.target.value });
+    }
+
+    const register = () => {
+      registerUser(this.state);
+    }
 
     let content;
+    if (popupType === '') content = '';
     if (popupType === 'login') {
       content = (
         <form className={styles.LoginForm}>
           <h3 className={styles.title}>Login</h3>
-          <Input type="text" placeholder="Login" />
+          <Input name="login" type="text" placeholder="login" onChange={saveFieldData} />
           <br/>
-          <Input type="password" placeholder="Password" />
+          <Input name="password" type="password" placeholder="Password" onChange={saveFieldData} />
           <br/>
-          <Button text="Login" display="block" />
+          <Button text="Login" display="block" onClick='' />
         </form>
       )
-    } else {
+    } else if(popupType === 'register') {
       content = (
         <form className={styles.LoginForm}>
           <h3 className={styles.title}>Register</h3>
-          <Input type="text" placeholder="Login" />
+          <Input name="login" type="text" placeholder="login" onChange={saveFieldData} />
           <br/>
-          <Input type="password" placeholder="Password" />
+          <Input name="password" type="password" placeholder="Password" onChange={saveFieldData} />
           <br/>
-          <Button text="Register" display="block" />
+          <Input name="password2" type="password" placeholder="Confirm Password" onChange={saveFieldData} />
+          <br/>
+          <Button text="Register" display="block" onClick={register} />
         </form>
       )
     }   

@@ -4,6 +4,7 @@ import loginComponent from '../components/loginComponent.jsx';
 
 import {
   popupToggle,
+  registerUser,
 } from '../actions/actions.js';
 
 
@@ -15,6 +16,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   popupToggle: (args) => {
     popupToggle(args);
+  },
+  registerUser: (args) => {
+    registerUser(args);
   }
 });
 

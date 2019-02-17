@@ -2,9 +2,12 @@ import axios from 'axios';
 
 import { FETCHING_DATA, FETCH_DATA_SUCCESS } from './constants.js';
 
+import notification from '../../../app/actions/notification.js';
+
 const dispatch = window.dispatch;
 
 export const fetchData = (args = {}) => {
+  notification.showHide()
   dispatch(fetchingData());
   axios.get('/items', args)
     .then((res) => {

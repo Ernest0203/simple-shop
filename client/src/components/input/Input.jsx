@@ -4,11 +4,10 @@ import styles from './styles.module.scss';
 
 class Input extends Component {
   render() {
-    const { type, placeholder } = this.props;
-
+    const { name, type, placeholder, onChange } = this.props;
     return (
       <div>
-        <input className={styles.input} type={type} placeholder={placeholder}></input>
+        <input className={styles.input} name={name} type={type} placeholder={placeholder} onChange={(e) => onChange(e)}></input>
       </div>
     );
   }

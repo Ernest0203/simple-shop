@@ -6,6 +6,8 @@ class Popup extends Component {
 
   popupClose = (e) => {
     e.preventDefault();
+    //if (e.target === $('.callback-overlay__close')) this.props.popupToggle();
+    if (e.target !== e.currentTarget) return false;
     window.document.body.style.overflow = 'visible';
     this.props.popupToggle();
   }
