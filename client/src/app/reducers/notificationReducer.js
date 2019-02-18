@@ -19,6 +19,13 @@ const notification = (state = initialState, action) => {
         ...state,
         isOpen: false,
       }
+    case 'NOTIF_CONFIRM':
+      return { 
+        ...state,
+        isOpen: true,
+        text: action.data,
+        type: 'confirm'
+      }
     case 'NOTIF_ERROR':
       return { 
         ...state,

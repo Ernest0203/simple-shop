@@ -12,6 +12,12 @@ const notification = {
       type: 'NOTIF_HIDE',
     }
   },
+  confirm(args) {
+    dispatch({ type: 'NOTIF_CONFIRM', data: args })
+    setTimeout(() => {
+      dispatch({ type: 'NOTIF_HIDE' })
+    }, 1500)
+  },
   error(args) {
     dispatch({ type: 'NOTIF_ERROR', data: args })
     setTimeout(() => {

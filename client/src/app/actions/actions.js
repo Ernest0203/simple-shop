@@ -14,7 +14,8 @@ export function popupToggle(args) {
 export function registerUser(args) {
   axios.post ('/users/register', args)
     .then((res) => {
-      console.log(res)
+      console.log(res.data)
+      notification.confirm('User has been created')
     })
     .catch((err) => {
       console.log(err.response.data)

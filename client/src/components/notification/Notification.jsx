@@ -12,6 +12,7 @@ class Notification extends Component {
 
     const style = {};
     if (type === 'error') style.background = '#ff9577';
+    if (type === 'confirm') style.background = '#6dd076';
 
     let content = isOpen
       ? (<div className={styles.notifContainer} style={style}>
