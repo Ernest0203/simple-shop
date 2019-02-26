@@ -1,11 +1,25 @@
 .product {
-  display: flex;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 .productImage {
   border: 1px solid #ccc;
   border-radius: 3px;
+  display: flex;
   margin-right: 20px;
+  width: 500px;
+  height: 500px;
+  float: left;
+  img {
+    display: block;
+    margin: auto;
+    max-width: 498px;
+    max-height: 498px;
+  }
 }
 
 .productDescription {

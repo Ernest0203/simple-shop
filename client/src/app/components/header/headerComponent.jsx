@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-import Navbar from '../navbar/Navbar.jsx';
-import Search from '../search/Search.jsx';
+import Navbar from '../../../components/navbar/Navbar.jsx'
+import Search from '../../../components/search/Search.jsx';
 
 import styles from './styles.module.scss';
 
-class Header extends Component {
+class headerComponent extends Component {
   render() {
+    const { popupToggle, logoutUser, user } = this.props;
+    const data = { user }
+
     return (
       <div>
-        <Navbar />
+        <Navbar data={data} popupToggle={popupToggle} logoutUser={logoutUser}/>
         <div className={styles.header}>
           <div className={styles.logo}>
             <Link to="/">
@@ -29,4 +32,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default headerComponent;

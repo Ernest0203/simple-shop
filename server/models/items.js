@@ -8,6 +8,8 @@ const ItemSchema = new Schema({
   price: { type: Number, required: true },
   category: { type: String, required: true },
   imageUrl: { type: String, required: true },
+  ownerId: String,
+  deleted: Boolean,
   date: { type: Date, default: Date.now },
 })
 

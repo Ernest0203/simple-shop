@@ -13,11 +13,15 @@ class Login extends Component {
   }
 
   render() {
-    const { popupToggle, registerUser } = this.props;
+    const { popupToggle, registerUser, loginUser } = this.props;
     const { popupIsOpen, popupType } = this.props.data;
 
     const saveFieldData = (e) => {
       this.setState({ [e.target.name]: e.target.value });
+    }
+
+    const login = () => {
+      loginUser(this.state);
     }
 
     const register = () => {
@@ -34,7 +38,7 @@ class Login extends Component {
           <br/>
           <Input name="password" type="password" placeholder="Password" onChange={saveFieldData} />
           <br/>
-          <Button text="Login" display="block" onClick='' />
+          <Button text="Login" display="block" onClick={login} />
         </form>
       )
     } else if(popupType === 'register') {

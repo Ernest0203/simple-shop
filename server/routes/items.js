@@ -5,6 +5,13 @@ const upload = require('../lib/fileUpload');
 
 const Items = require('../models/items.js');
 
+const categories = [
+  { value: 'Video Game Consoles' },
+];
+
+//Items.update({}, {$set: {category: 'Video Game Consoles'}}, {upsert: true, multi: true}).then(res => console.log(res))
+//Items.find().then((res) => console.log(res))
+
 router.get('/', (req, res) => {
   Items.find()
     .sort({ date: -1 })

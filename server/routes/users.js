@@ -1,12 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 const Users = require('../models/users.js');
 
-router.get('/login' , (req, res) => res.send('Login'));
+//Users.remove().then(res => console.log(res))
+//find().then(res => console.log(res))
 
-router.get('/register' , (req, res) => res.send('Register'));
+router.get('/user', (req, res) => {
+  const data = req.user 
+    ? {
+        _id: req.user._id,
+        login: req.user.login
+      }
+    : '';
+  res.send(data);
+})
+
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) res.status(500).send([{ message: err }]);
+    if (!user) res.status(401).send([{ message: 'User not registered' }]);
+    req.logIn(user, (err) => {
+      if (err) res.status(500).send([{ message: err }]);
+      const data = {
+        _id: user._id,
+        login: user.login
+      }
+      res.send(data)
+    })
+  })(req, res, next);
+})
+
+router.get('/logout' , (req, res) => {
+  req.logout();
+  res.send(req.user);
+});
 
 router.post('/register' , (req, res) => {
   const { login, password, password2 } = req.body;

@@ -11,15 +11,43 @@ export function popupToggle(args) {
   })
 }
 
+export function isLoggedIn() {
+  axios.get('/users/user')
+    .then((res) => {
+      if (res.data) {
+        dispatch({ type: 'LOGGED_USER', data: res.data });
+      } else dispatch({ type: 'RESET_USER' });
+    })
+}
+
+export function loginUser(args) {
+  axios.post('/users/login', args)
+    .then((res) => {
+      dispatch({ type: 'LOGGED_USER', data: res.data })
+      notification.confirm('Login success');
+      popupToggle();
+    })
+    .catch ((err) => notification.error(err.response.data[0].message))
+}
+
+export function logoutUser() {
+  axios.get('/users/logout')
+    .then((res) => {
+      if (!res.data) dispatch({ type: 'RESET_USER' });
+      return;
+    })
+}
+
 export function registerUser(args) {
+  //isLoggedIn()
+
   axios.post ('/users/register', args)
     .then((res) => {
-      console.log(res.data)
-      notification.confirm('User has been created')
+      popupToggle()
+      notification.confirm('User has been created');
+      popupToggle('login')
     })
     .catch((err) => {
-      console.log(err.response.data)
       notification.error(err.response.data[0].message);
-      //notification
     })
 }
