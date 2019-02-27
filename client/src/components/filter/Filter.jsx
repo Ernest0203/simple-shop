@@ -4,10 +4,22 @@ import styles from './styles.module.scss';
 
 class Filter extends Component {
   render() {
-    const { categories } = this.props;
+    const { categories, selectedFilter, applyFilter } = this.props;
+
+    const filter = (e, value) => {
+      e.preventDefault();
+      const params = value !== 'All'
+        ? { category: value }
+        : {}
+      applyFilter(params);
+    }
 
     const categoriesList = categories.map((category) => {
-      return <li className={styles.filterItem}><a href="">{category.value}</a></li>
+      const style = {};
+      if (selectedFilter === category.value) {
+        style['font-family'] = 'OpenSans-Bold';
+      }
+      return <li className={styles.filterItem}><a href="" onClick={(e) => filter(e, category.value)} style={style}>{category.value}</a></li>
     })
 
     return (
