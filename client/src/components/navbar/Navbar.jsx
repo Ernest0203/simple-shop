@@ -16,6 +16,11 @@ class Navbar extends Component {
     this.props.popupToggle(type);
   } 
 
+  logout = (e) => {
+    e.preventDefault();
+    this.props.logoutUser();
+  }
+
   render() {
     const { user } = this.props.data;
 
@@ -27,7 +32,7 @@ class Navbar extends Component {
             <a href="#" className={styles.userName}>{user.login}</a>
             <ul className={styles.userMenuList}>
               <li className={styles.userMenuItem}><Link to='/user'>My shop</Link></li>
-              <li className={styles.userMenuItem}><a href="" onClick={() => this.props.logoutUser()}>Logout</a></li>
+              <li className={styles.userMenuItem}><a href="" onClick={(e) => this.logout(e)}>Logout</a></li>
             </ul>
           </div>
         )

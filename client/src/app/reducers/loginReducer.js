@@ -12,7 +12,7 @@ const user = (state = initialState, action) => {
       return { ...state, user: { ...action.data } }
     
     case 'RESET_USER':
-      return { ...state, user: state.user }
+      return { ...state, user: initialState.user }
        
     default:
       return state;

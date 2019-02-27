@@ -6,7 +6,7 @@ const initialState = {
   firstLoad: true,
 }
 
-export const listing = (state = initialState, action) => {
+const listing = (state = initialState, action) => {
   switch(action.type) {
 
     case FETCHING_DATA:
@@ -32,3 +32,5 @@ export const listing = (state = initialState, action) => {
       return state;
   }
 }
+
+export default listing;

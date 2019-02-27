@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Listing from './containers/listingContainer.js';
 
-import Filter from '../../components/filter/Filter.jsx';
+import Filter from './containers/filterContainer.js';
 
 import styles from './styles.module.scss';
 

@@ -9,7 +9,8 @@ import {
 
 const mapStateToProps = (state) => {
   const { data, firstLoad, loading } = state.user;
-  return { data, firstLoad, loading };
+  const { user } = state.general.user;
+  return { data, firstLoad, loading, user };
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,13 +19,5 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const mergeProps = (stateProps, dispatchProps) => {};
-
-const Listing = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  //mergeProps,
-)(ListingComponent);
-
-export default Listing;
+export default connect(mapStateToProps, mapDispatchToProps)(ListingComponent);
 

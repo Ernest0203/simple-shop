@@ -9,7 +9,9 @@ import {
 
 const mapStateToProps = (state) => {
   const { data, firstLoad, loading } = state.user;
-  return { data, firstLoad, loading };
+  const { user } = state.general.user;
+  const { categories } = state.main.filter;
+  return { data, firstLoad, loading, categories, user };
 }
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,12 +20,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const mergeProps = (stateProps, dispatchProps) => {};
-
-const AddProductContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  //mergeProps,
-)(AddProduct);
-
-export default AddProductContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);

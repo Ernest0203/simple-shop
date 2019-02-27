@@ -8,7 +8,7 @@ import {
 
 
 const mapStateToProps = (state) => {
-  const { data, firstLoad, loading } = state.main;
+  const { data, firstLoad, loading } = state.main.listing;
   return { data, firstLoad, loading };
 }
 

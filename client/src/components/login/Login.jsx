@@ -20,11 +20,13 @@ class Login extends Component {
       this.setState({ [e.target.name]: e.target.value });
     }
 
-    const login = () => {
+    const login = (e) => {
+      e.preventDefault();
       loginUser(this.state);
     }
 
-    const register = () => {
+    const register = (e) => {
+      e.preventDefault();
       registerUser(this.state);
     }
 
@@ -38,7 +40,7 @@ class Login extends Component {
           <br/>
           <Input name="password" type="password" placeholder="Password" onChange={saveFieldData} />
           <br/>
-          <Button text="Login" display="block" onClick={login} />
+          <a href="" onClick={(e) => login(e)}><Button text="Login" display="block" /></a>
         </form>
       )
     } else if(popupType === 'register') {
@@ -51,7 +53,7 @@ class Login extends Component {
           <br/>
           <Input name="password2" type="password" placeholder="Confirm Password" onChange={saveFieldData} />
           <br/>
-          <Button text="Register" display="block" onClick={register} />
+          <a href="" onClick={(e) => register(e)}><Button text="Register" display="block" /></a>
         </form>
       )
     }   

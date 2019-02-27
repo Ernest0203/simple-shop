@@ -17,7 +17,7 @@ class UserPage extends Component {
         <div className={styles.content}>
           <div className={styles.leftColumn}>
             <UserOptions />
-            <Filter />
+            {/* <Filter /> */}
           </div>
           <div className={styles.rightColumn}>
             <Layot />

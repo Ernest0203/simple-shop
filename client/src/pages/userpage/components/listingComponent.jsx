@@ -9,8 +9,8 @@ class ListingComponent extends Component {
   }
 
   componentWillMount() {
-    const { firstLoad, fetchData } = this.props;
-    if (firstLoad) fetchData();
+    const { firstLoad, fetchData, user } = this.props;
+    if (firstLoad) fetchData({ ownerId: user._id });
   }
 
   render() {

@@ -6,9 +6,9 @@ const dispatch = window.dispatch;
 
 export const fetchData = (args = {}) => {
   dispatch(fetchingData());
-  axios.get('/items', args)
+  axios.get('/items', { params: { ...args } })
     .then((res) => {
-      dispatch(fetchDataSuccess(res.data))
+      dispatch(fetchDataSuccess(res.data.items))
   }).catch(err => console.log(err));
 };
 

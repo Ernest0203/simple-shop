@@ -14,6 +14,7 @@ class AddProduct extends Component {
       price: 0,
       category: '',
       image: {},
+      ownerId: props.user._id || ''
     };
     this.initialState = { ...this.state };
   }
@@ -71,6 +72,11 @@ class AddProduct extends Component {
   } 
 
   render() {
+    const { categories } = this.props;
+    const categoriesOptions = categories.map((category) => {
+      return <option value={category.value}>{category.value}</option>
+    })
+
     return (
       <div className={styles.container}>
         <h3 className={styles.title}>Add new product</h3>
@@ -80,7 +86,7 @@ class AddProduct extends Component {
           <input type="number" className={styles.productPrice} name="price" min="0" placeholder="Price" onChange={(e) => this.changeItemInfo(e)} />
           <select name="category" onChange={(e) => this.changeItemInfo(e)}>
             <option value="" disabled selected hidden>Category</option>
-            <option value="electronics">Electronics</option>
+            {categoriesOptions}
           </select>
           <br />
           <input type="file" name='image' onChange={(e) => this.changeItemInfo(e)} />

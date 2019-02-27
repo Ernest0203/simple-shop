@@ -20,13 +20,13 @@ export const listing = (state = initialState, action) => {
         firstLoad: false,
       }
 
-    case 'ADD_ITEM_SUCCESS':
-      const updatedData = state.data.slice(0);
-      updatedData.unshift(action.data);
-      return {
-        ...state,
-        data: updatedData,
-      }
+    // case 'ADD_ITEM_SUCCESS':
+    //   const updatedData = state.data.slice(0);
+    //   updatedData.unshift(action.data);
+    //   return {
+    //     ...state,
+    //     data: updatedData,
+    //   }
     
     default:
       return state;

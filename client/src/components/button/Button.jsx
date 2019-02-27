@@ -8,7 +8,7 @@ class Button extends Component {
   }
 
   render() {
-    const { text, width, display, onClick } = this.props;
+    const { text, width, display } = this.props;
 
     const style = {
       width: width ? `${width}` : 'auto',
@@ -16,7 +16,7 @@ class Button extends Component {
     }
 
     return (
-      <div className={styles.button} style={style} onClick={() => onClick()}>
+      <div className={styles.button} style={style} >
         {text}
       </div>
     );
