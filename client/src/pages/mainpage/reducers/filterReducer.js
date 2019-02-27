@@ -15,7 +15,6 @@ const filter = (state = initialState, action) => {
     
     default:
       return state;
-      
   }
 }
 
