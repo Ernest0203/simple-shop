@@ -41,7 +41,7 @@ export function logoutUser() {
 export function registerUser(args) {
   //isLoggedIn()
 
-  axios.post ('/users/register', args)
+  axios.post('/users/register', args)
     .then((res) => {
       popupToggle()
       notification.confirm('User has been created');
@@ -51,3 +51,14 @@ export function registerUser(args) {
       notification.error(err.response.data[0].message);
     })
 }
+
+export const search = (args = {}) => {
+  notification.showHide();
+  axios.get('/items', { params: { ...args, search: true } })
+    .then((res) => {
+      dispatch({ 
+        type: 'FETCH_MAIN_DATA_SUCCESS',
+        data: res.data.items 
+      });
+  }).catch(err => notification.error(err.response.data[0].message));
+};

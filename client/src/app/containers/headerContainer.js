@@ -5,6 +5,7 @@ import headerComponent from '../components/header/headerComponent.jsx';
 import {
   popupToggle,
   logoutUser,
+  search
 } from '../actions/actions.js';
 
 
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   logoutUser: () => {
     logoutUser();
+  },
+  search: (args) => {
+    search(args);
   }
 });
 

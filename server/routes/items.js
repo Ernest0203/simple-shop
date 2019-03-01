@@ -12,13 +12,22 @@ const categories = [
   { value: 'Fitness Technology' },
 ];
 
-//Items.update({}, {$set: {category: 'Video Game Consoles'}}, {upsert: true, multi: true}).then(res => console.log(res))
-//Items.find().then((res) => console.log(res))
+function parseArgs(args) {
+  let overrides = {};
+  if (args.search) {
+    overrides.name = { $in: new RegExp(args.name, 'i') }
+  } else {
+    overrides = { ...args }
+  }
+  return overrides;
+}
 
 router.get('/', (req, res) => {
   const data = {};
+  const overrides = parseArgs(req.query);
+
   data.categories = categories;
-  Items.find({ ...req.query })
+  Items.find(overrides)
     .sort({ date: -1 })
     .then(items => {
       data.items = items;

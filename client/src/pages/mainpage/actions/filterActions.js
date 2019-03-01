@@ -25,7 +25,7 @@ export const applyFilter = (args = {}) => {
     .then((res) => {
       dispatch(fetchDataSuccess(res.data.items));
       dispatch(selectFilter(args.category));
-  }).catch(err => console.log(err));
+  }).catch(err => notification.error(err.response.data[0].message));
 };
 
 function fetchDataSuccess(data) {

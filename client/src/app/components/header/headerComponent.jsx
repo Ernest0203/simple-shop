@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 class headerComponent extends Component {
   render() {
-    const { popupToggle, logoutUser, user } = this.props;
+    const { popupToggle, logoutUser, search, user } = this.props;
     const data = { user }
 
     return (
@@ -24,7 +24,7 @@ class headerComponent extends Component {
             </Link>
           </div>
           <div className={styles.searchContainer}>
-            <Search />
+            <Search search={search}/>
           </div>
         </div>
       </div>
