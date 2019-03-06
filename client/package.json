@@ -77,6 +77,7 @@
   "proxy": "http://localhost:2000/",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
     "stylus": "^0.54.5"
   },
   "jest": {

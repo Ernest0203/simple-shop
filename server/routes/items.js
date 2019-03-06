@@ -38,8 +38,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   return upload(req.body.image.data).then((imageUrl) => {
-    console.log(req.body);
-    
     const data = { ...req.body };
     data.imageUrl = imageUrl;
     Items.create(data).then(item => res.json(item));

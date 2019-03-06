@@ -18,6 +18,7 @@ class Filter extends Component {
       const style = {};
       if (selectedFilter === category.value) {
         style['font-family'] = 'OpenSans-Bold';
+        style['font-size'] = '15px';
       }
       return <li className={styles.filterItem}><a href="" onClick={(e) => filter(e, category.value)} style={style}>{category.value}</a></li>
     })
