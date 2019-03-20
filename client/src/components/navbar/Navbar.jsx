@@ -22,7 +22,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { user } = this.props.data;
+    const { user, userLink } = this.props.data;
 
     const userMenu = 
       user.login.length > 0 
@@ -31,7 +31,7 @@ class Navbar extends Component {
           <div className={styles.userMenuContainer}>
             <a href="#" className={styles.userName}>{user.login}</a>
             <ul className={styles.userMenuList}>
-              <li className={styles.userMenuItem}><Link to='/user'>My shop</Link></li>
+              <li className={styles.userMenuItem}><Link to={userLink}>My shop</Link></li>
               <li className={styles.userMenuItem}><a href="" onClick={(e) => this.logout(e)}>Logout</a></li>
             </ul>
           </div>

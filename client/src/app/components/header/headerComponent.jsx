@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 class headerComponent extends Component {
   render() {
     const { popupToggle, logoutUser, search, user } = this.props;
-    const data = { user }
+    const data = { user, userLink: '/user' }
 
     return (
       <div>
